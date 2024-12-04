@@ -1,5 +1,5 @@
 import request from 'supertest';
-import express, { Express } from 'express';
+import express from 'express';
 import timeRoute from '../../src/routes/timeRoutes'
 
 const app = express();
