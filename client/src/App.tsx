@@ -1,16 +1,12 @@
 import React from 'react';
-import './App.css';
+import HomePage from '../src/pages/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+    return (
+        <div>
+            <HomePage />
+        </div>
+    );
+};
 
 export default App;
