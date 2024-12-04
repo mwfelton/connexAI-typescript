@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "@types/express-prometheus-middleware": "^1.2.3",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.1",
     "@types/supertest": "^6.0.2",
@@ -28,6 +29,6 @@
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
+    "typescript": "^4.9.5"
   }
 }
