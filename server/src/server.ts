@@ -1,19 +1,17 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
+import timeRoutes from './routes/timeRoutes';
 
+const prometheus = require('express-prometheus-middleware');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, TypeScript Express!');
-  });
+app.use(prometheus({
+  metricPath: '/metrics',
+  collectDefaultMetrics: true,
+}));
 
-  app.get('/time', (req, res) => {
-    const serverTime = {
-      epoch: Math.floor(Date.now() / 1000),
-    };
-    res.json(serverTime);
-  });
-  
-  app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-  });
+app.use('/', timeRoutes);
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
