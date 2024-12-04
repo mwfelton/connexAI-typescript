@@ -1,6 +1,6 @@
 import React from 'react';
-import TimeComponent from '../components/Time';
-import MetricsComponent from '../components/Metrics';
+import TimeComponent from '../components/Time/Time';
+import MetricsComponent from '../components/Metrics/Metrics';
 
 const HomePage: React.FC = () => {
     return (
