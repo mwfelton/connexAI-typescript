@@ -14,6 +14,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "express-generator": "^4.16.1",
     "express-prometheus-middleware": "^1.2.0"
   },
