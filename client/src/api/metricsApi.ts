@@ -1,20 +1,19 @@
 import { apiClient } from './apiClient';
 
-// Define the structure of the metrics response
 export interface MetricsResponse {
   success: boolean;
-  data?: { [key: string]: number }; // Example: { users: 100, sessions: 250 }
+  data?: string; // Raw text response
   error?: string;
 }
 
-// Function to fetch metrics data
 export const getMetrics = async (): Promise<MetricsResponse> => {
   try {
-    // Explicitly specify the expected data type
-    const response = await apiClient<{ [key: string]: number }>('/metrics', { method: 'GET' });
-    return response;
+    const response = await apiClient('/metrics', { method: 'GET' }, 'text'); // Specify responseType as 'text'
+    if (response.success && typeof response.data === 'string') {
+      return { success: true, data: response.data };
+    }
+    return { success: false, error: 'Invalid metrics response' };
   } catch (error) {
     return { success: false, error: 'Failed to fetch metrics' };
   }
 };
-
